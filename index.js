@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(MONGO_URL).then(() => console.log('MongoDB connected'))
+mongoose.connect(process.env.MONGO_URL).then(() => console.log('MongoDB connected'))
   .catch(err => console.error(`MongoDB error: ${err.message}`));
 
 app.use('/notes', notesRouter);
